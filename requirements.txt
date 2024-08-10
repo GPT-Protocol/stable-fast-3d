@@ -10,3 +10,17 @@ huggingface-hub==0.23.4
 rembg[gpu]==2.0.57
 git+https://github.com/vork/PyNanoInstantMeshes.git
 gpytoolbox==0.2.0
+einops==0.7.0
+rembg
+huggingface-hub
+imageio[ffmpeg]
+Flask==2.0.1
+requests
+uuid
+gunicorn==20.0.4
+Flask-Cors==4.0.0
+minio
+python-dotenv
+pika
+sqlalchemy
+psycopg2-binary
