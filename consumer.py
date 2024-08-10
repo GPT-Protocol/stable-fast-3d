@@ -85,7 +85,7 @@ def main():
     channel.basic_qos(prefetch_count=1)
     channel.basic_consume(queue='test_queue', on_message_callback=callback)
 
-    print(' [*] Waiting for messages. To exit press CTRL+C')
+    print(' [*] Waiting for messages in Stable Fast 3D. To exit press CTRL+C')
     channel.start_consuming()
 
 if __name__ == '__main__':
