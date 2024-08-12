@@ -58,7 +58,7 @@ def process_image(image_name, channel, method) -> None:
 
         print(f"Generating obj file")
         # Define the expected output .obj file path
-        obj_file_path = "outputs/0/mesh.glb"
+        obj_file_path = "./outputs/0/mesh.glb"
 
         obj_file_name = image_name.split(".")[0] + ".glb"
         # Store the generated object on minio
