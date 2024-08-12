@@ -34,15 +34,18 @@ def update_3d_generation_status(uuid, status) -> None:
 
 def process_image(image_name, channel, method) -> None:
     try:
+        print(f"Fetching image {image_name} from bucket")
         image_response = minio_client.get_object(bucket_name=minio_bucket_name, object_name=image_name)
         image_data = base64.b64encode(image_response.read()).decode('utf-8')
         image_bytes = base64.b64decode(image_data)
 
+        print(f"Image fetched. Processing image {image_name}")
         image_uuid = image_name.split(".")[0]
         # Create directories for inputs and outputs based on unique_id
         input_dir = os.path.join('inputs', image_uuid)
         output_dir_base = os.path.join('outputs', image_uuid)
 
+        print(f"Creating directories for inputs and outputs based on unique_id")
         os.makedirs(input_dir, exist_ok=True)
         os.makedirs(output_dir_base, exist_ok=True)
 
@@ -53,6 +56,7 @@ def process_image(image_name, channel, method) -> None:
         # Process the image
         os.system(f"python run.py {input_path} --output-dir {output_dir_base}")
 
+        print(f"Generating obj file")
         # Define the expected output .obj file path
         obj_file_path = os.path.join(output_dir_base, "0", "mesh.obj")
 
