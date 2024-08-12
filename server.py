@@ -42,7 +42,7 @@ def process_image():
     os.system(f"/usr/bin/python3.9 /app/stable-fast-3d/run.py {input_path} --output-dir {output_dir_base}")
 
     # Define the expected output .obj file path
-    obj_file_path = os.path.join(output_dir_base, "0", "mesh.obj")
+    obj_file_path = os.path.join(output_dir_base, "0", "mesh.glb")
 
     obj_name = unique_id + ".obj"
     # Store the generated object on minio

@@ -58,9 +58,9 @@ def process_image(image_name, channel, method) -> None:
 
         print(f"Generating obj file")
         # Define the expected output .obj file path
-        obj_file_path = os.path.join(output_dir_base, "0", "mesh.obj")
+        obj_file_path = "outputs/0/mesh.glb"
 
-        obj_file_name = image_name.split(".")[0] + ".obj"
+        obj_file_name = image_name.split(".")[0] + ".glb"
         # Store the generated object on minio
         minio_client.fput_object(bucket_name=minio_generated_3d_assets_bucket, object_name=obj_file_name, file_path=obj_file_path)
         print("Obj file uploaded to minio", obj_file_name)
